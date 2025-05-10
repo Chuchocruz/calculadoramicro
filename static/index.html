@@ -9,7 +9,7 @@
   </style>
 </head>
 <body>
-  <h1>🧮 Microservicio Calculadora</h1>
+  <h1>Microservicio Calculadora</h1>
 
   <input type="number" id="a" placeholder="Número A"><br>
   <input type="number" id="b" placeholder="Número B"><br>
@@ -25,26 +25,9 @@
 
   <h2 id="resultado"></h2>
 
-  <script>
-    async function calcular() {
-      const a = document.getElementById("a").value;
-      const b = document.getElementById("b").value;
-      const operacion = document.getElementById("operacion").value;
+  
+  <!-- <script src="js/calcu.js"></script> -->
+   <script src="/static/js/calcu.js"></script>
 
-      const url = `/${operacion}?a=${a}&b=${b}`;
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        if (res.ok) {
-          document.getElementById("resultado").textContent = `Resultado: ${data.resultado}`;
-        } else {
-          document.getElementById("resultado").textContent = `Error: ${data.detail}`;
-        }
-      } catch (error) {
-        document.getElementById("resultado").textContent = "Error al conectar con el servidor.";
-      }
-    }
-  </script>
 </body>
 </html>
